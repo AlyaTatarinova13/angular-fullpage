@@ -20,16 +20,29 @@
   },
   "dependencies": {
     "fullpage.js": "^3.1.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
-  "main": "bundles/fullpage-angular-fullpage.umd.js",
-  "module": "fesm2015/fullpage-angular-fullpage.js",
-  "es2015": "fesm2015/fullpage-angular-fullpage.js",
-  "esm2015": "esm2015/fullpage-angular-fullpage.js",
-  "fesm2015": "fesm2015/fullpage-angular-fullpage.js",
-  "typings": "fullpage-angular-fullpage.d.ts",
+  "module": "fesm2015/fullpage-angular-fullpage.mjs",
+  "es2020": "fesm2020/fullpage-angular-fullpage.mjs",
+  "esm2020": "esm2020/fullpage-angular-fullpage.mjs",
+  "fesm2020": "fesm2020/fullpage-angular-fullpage.mjs",
+  "fesm2015": "fesm2015/fullpage-angular-fullpage.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/fullpage-angular-fullpage.mjs",
+      "es2020": "./fesm2020/fullpage-angular-fullpage.mjs",
+      "es2015": "./fesm2015/fullpage-angular-fullpage.mjs",
+      "node": "./fesm2015/fullpage-angular-fullpage.mjs",
+      "default": "./fesm2020/fullpage-angular-fullpage.mjs"
+    }
+  },
   "sideEffects": false,
   "scripts": {
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy in full compilation mode. This is not allowed.\\nPlease delete and rebuild the package with Ivy partial compilation mode, before attempting to publish.\\n')\" && exit 1"
   }
 }

@@ -12,12 +12,12 @@ export declare class FullpageDirective implements AfterViewInit, OnDestroy {
     addBuildFunction(): void;
     destroyFullpage(): void;
     ngOnDestroy(): void;
-    static ɵfac: i0.ɵɵFactoryDef<FullpageDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDefWithMeta<FullpageDirective, "[fullpage]", never, { "id": "id"; "options": "options"; }, { "ref": "ref"; }, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<FullpageDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<FullpageDirective, "[fullpage]", never, { "id": "id"; "options": "options"; }, { "ref": "ref"; }, never, never, false>;
 }
 export declare class AnchorLinkDirective {
     href: string;
     onClick(event: any): void;
-    static ɵfac: i0.ɵɵFactoryDef<AnchorLinkDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDefWithMeta<AnchorLinkDirective, "[href]", never, { "href": "href"; }, {}, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AnchorLinkDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<AnchorLinkDirective, "[href]", never, { "href": "href"; }, {}, never, never, false>;
 }
