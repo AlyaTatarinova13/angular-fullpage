@@ -9,21 +9,20 @@ if (!fullpage && typeof window !== 'undefined') {
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
   selector: '[fullpage]'
 })
 export class FullpageDirective implements AfterViewInit, OnDestroy {
-  @Input() id;
-  @Input() options;
+  @Input() id: any;
+  @Input() options: any;
   @Output() ref = new EventEmitter();
-  fullpage_api;
+  fullpage_api: any;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private renderer: Renderer2
   ) { }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.initFullpage();
     }
@@ -32,13 +31,13 @@ export class FullpageDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  initFullpage() {
+  initFullpage(): void {
     this.fullpage_api = new fullpage('#' + this.id, this.options);
     this.addBuildFunction();
     this.ref.emit(this.fullpage_api);
   }
 
-  addBuildFunction() {
+  addBuildFunction(): void {
     this.fullpage_api.build = () => {
       const activeSection = this.fullpage_api.getActiveSection();
       const activeSlide = this.fullpage_api.getActiveSlide();
@@ -57,23 +56,22 @@ export class FullpageDirective implements AfterViewInit, OnDestroy {
     };
   }
 
-  destroyFullpage() {
+  destroyFullpage(): void {
     if (typeof this.fullpage_api !== 'undefined' && typeof this.fullpage_api.destroy !== 'undefined') {
       this.fullpage_api.destroy('all');
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroyFullpage();
   }
 }
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
-  selector : '[href]'
+  selector: '[href]'
 })
 export class AnchorLinkDirective {
-  @Input() href: string;
+  @Input() href: string = '';
 
   @HostListener('click', ['$event']) onClick(event) {
     if (this.href.length > 0 && this.href[0] === '#') {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { FullpageDirective, AnchorLinkDirective } from './fullpage.directive';
+import { AnchorLinkDirective, FullpageDirective } from "./fullpage.directive";
+
 
 @NgModule({
   imports: [],

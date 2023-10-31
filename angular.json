@@ -183,5 +183,8 @@
       }
     }
   },
-  "defaultProject": "fullpage"
+  "defaultProject": "fullpage",
+  "cli": {
+    "analytics": false
+  }
 }
