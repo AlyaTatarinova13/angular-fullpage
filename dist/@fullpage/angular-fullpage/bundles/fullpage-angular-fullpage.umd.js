@@ -1,8 +1,28 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('@fullpage/angular-fullpage', ['exports', '@angular/core', '@angular/common'], factory) :
-    (global = global || self, factory((global.fullpage = global.fullpage || {}, global.fullpage['angular-fullpage'] = {}), global.ng.core, global.ng.common));
-}(this, (function (exports, i0, common) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core')) :
+    typeof define === 'function' && define.amd ? define('@fullpage/angular-fullpage', ['exports', '@angular/core'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.fullpage = global.fullpage || {}, global.fullpage["angular-fullpage"] = {}), global.ng.core));
+})(this, (function (exports, i0) { 'use strict';
+
+    function _interopNamespace(e) {
+        if (e && e.__esModule) return e;
+        var n = Object.create(null);
+        if (e) {
+            Object.keys(e).forEach(function (k) {
+                if (k !== 'default') {
+                    var d = Object.getOwnPropertyDescriptor(e, k);
+                    Object.defineProperty(n, k, d.get ? d : {
+                        enumerable: true,
+                        get: function () { return e[k]; }
+                    });
+                }
+            });
+        }
+        n["default"] = e;
+        return Object.freeze(n);
+    }
+
+    var i0__namespace = /*#__PURE__*/_interopNamespace(i0);
 
     // tslint:disable-next-line:max-line-length
     var fullpage = null;
@@ -10,18 +30,11 @@
         fullpage = require('fullpage.js/dist/fullpage.extensions.min');
     }
     var FullpageDirective = /** @class */ (function () {
-        function FullpageDirective(platformId, renderer) {
-            this.platformId = platformId;
+        function FullpageDirective(renderer) {
             this.renderer = renderer;
             this.ref = new i0.EventEmitter();
         }
         FullpageDirective.prototype.ngAfterViewInit = function () {
-            if (common.isPlatformBrowser(this.platformId)) {
-                this.initFullpage();
-            }
-            if (common.isPlatformServer(this.platformId)) {
-                // server side code
-            }
         };
         FullpageDirective.prototype.initFullpage = function () {
             this.fullpage_api = new fullpage('#' + this.id, this.options);
@@ -53,20 +66,15 @@
         };
         return FullpageDirective;
     }());
-    /** @nocollapse */ FullpageDirective.ɵfac = function FullpageDirective_Factory(t) { return new (t || FullpageDirective)(i0.ɵɵdirectiveInject(i0.PLATFORM_ID), i0.ɵɵdirectiveInject(i0.Renderer2)); };
-    /** @nocollapse */ FullpageDirective.ɵdir = i0.ɵɵdefineDirective({ type: FullpageDirective, selectors: [["", "fullpage", ""]], inputs: { id: "id", options: "options" }, outputs: { ref: "ref" } });
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(FullpageDirective, [{
+    /** @nocollapse */ FullpageDirective.ɵfac = function FullpageDirective_Factory(t) { return new (t || FullpageDirective)(i0__namespace.ɵɵdirectiveInject(i0__namespace.Renderer2)); };
+    /** @nocollapse */ FullpageDirective.ɵdir = i0__namespace.ɵɵdefineDirective({ type: FullpageDirective, selectors: [["", "fullpage", ""]], inputs: { id: "id", options: "options" }, outputs: { ref: "ref" } });
+    (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(FullpageDirective, [{
                 type: i0.Directive,
                 args: [{
                         selector: '[fullpage]'
                     }]
-            }], function () {
-            return [{ type: Object, decorators: [{
-                            type: i0.Inject,
-                            args: [i0.PLATFORM_ID]
-                        }] }, { type: i0.Renderer2 }];
-        }, { id: [{
+            }], function () { return [{ type: i0__namespace.Renderer2 }]; }, { id: [{
                     type: i0.Input
                 }], options: [{
                     type: i0.Input
@@ -87,13 +95,13 @@
         return AnchorLinkDirective;
     }());
     /** @nocollapse */ AnchorLinkDirective.ɵfac = function AnchorLinkDirective_Factory(t) { return new (t || AnchorLinkDirective)(); };
-    /** @nocollapse */ AnchorLinkDirective.ɵdir = i0.ɵɵdefineDirective({ type: AnchorLinkDirective, selectors: [["", "href", ""]], hostBindings: function AnchorLinkDirective_HostBindings(rf, ctx) {
+    /** @nocollapse */ AnchorLinkDirective.ɵdir = i0__namespace.ɵɵdefineDirective({ type: AnchorLinkDirective, selectors: [["", "href", ""]], hostBindings: function AnchorLinkDirective_HostBindings(rf, ctx) {
             if (rf & 1) {
-                i0.ɵɵlistener("click", function AnchorLinkDirective_click_HostBindingHandler($event) { return ctx.onClick($event); });
+                i0__namespace.ɵɵlistener("click", function AnchorLinkDirective_click_HostBindingHandler($event) { return ctx.onClick($event); });
             }
         }, inputs: { href: "href" } });
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(AnchorLinkDirective, [{
+    (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AnchorLinkDirective, [{
                 type: i0.Directive,
                 args: [{
                         selector: '[href]'
@@ -111,11 +119,12 @@
         }
         return AngularFullpageModule;
     }());
-    /** @nocollapse */ AngularFullpageModule.ɵmod = i0.ɵɵdefineNgModule({ type: AngularFullpageModule });
-    /** @nocollapse */ AngularFullpageModule.ɵinj = i0.ɵɵdefineInjector({ factory: function AngularFullpageModule_Factory(t) { return new (t || AngularFullpageModule)(); }, imports: [[]] });
-    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(AngularFullpageModule, { declarations: [FullpageDirective, AnchorLinkDirective], exports: [FullpageDirective, AnchorLinkDirective] }); })();
-    /*@__PURE__*/ (function () {
-        i0.ɵsetClassMetadata(AngularFullpageModule, [{
+    /** @nocollapse */ AngularFullpageModule.ɵfac = function AngularFullpageModule_Factory(t) { return new (t || AngularFullpageModule)(); };
+    /** @nocollapse */ AngularFullpageModule.ɵmod = i0__namespace.ɵɵdefineNgModule({ type: AngularFullpageModule });
+    /** @nocollapse */ AngularFullpageModule.ɵinj = i0__namespace.ɵɵdefineInjector({ imports: [[]] });
+    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0__namespace.ɵɵsetNgModuleScope(AngularFullpageModule, { declarations: [FullpageDirective, AnchorLinkDirective], exports: [FullpageDirective, AnchorLinkDirective] }); })();
+    (function () {
+        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AngularFullpageModule, [{
                 type: i0.NgModule,
                 args: [{
                         imports: [],
@@ -139,5 +148,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=fullpage-angular-fullpage.umd.js.map

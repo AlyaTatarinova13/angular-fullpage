@@ -1,5 +1,5 @@
-import { EventEmitter, ɵɵdirectiveInject, PLATFORM_ID, Renderer2, ɵɵdefineDirective, ɵsetClassMetadata, Directive, Inject, Input, Output, ɵɵlistener, HostListener, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import * as i0 from '@angular/core';
+import { EventEmitter, Directive, Input, Output, HostListener, NgModule } from '@angular/core';
 
 // tslint:disable-next-line:max-line-length
 let fullpage = null;
@@ -7,18 +7,11 @@ if (!fullpage && typeof window !== 'undefined') {
     fullpage = require('fullpage.js/dist/fullpage.extensions.min');
 }
 class FullpageDirective {
-    constructor(platformId, renderer) {
-        this.platformId = platformId;
+    constructor(renderer) {
         this.renderer = renderer;
         this.ref = new EventEmitter();
     }
     ngAfterViewInit() {
-        if (isPlatformBrowser(this.platformId)) {
-            this.initFullpage();
-        }
-        if (isPlatformServer(this.platformId)) {
-            // server side code
-        }
     }
     initFullpage() {
         this.fullpage_api = new fullpage('#' + this.id, this.options);
@@ -48,17 +41,14 @@ class FullpageDirective {
         this.destroyFullpage();
     }
 }
-/** @nocollapse */ FullpageDirective.ɵfac = function FullpageDirective_Factory(t) { return new (t || FullpageDirective)(ɵɵdirectiveInject(PLATFORM_ID), ɵɵdirectiveInject(Renderer2)); };
-/** @nocollapse */ FullpageDirective.ɵdir = ɵɵdefineDirective({ type: FullpageDirective, selectors: [["", "fullpage", ""]], inputs: { id: "id", options: "options" }, outputs: { ref: "ref" } });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(FullpageDirective, [{
+/** @nocollapse */ FullpageDirective.ɵfac = function FullpageDirective_Factory(t) { return new (t || FullpageDirective)(i0.ɵɵdirectiveInject(i0.Renderer2)); };
+/** @nocollapse */ FullpageDirective.ɵdir = i0.ɵɵdefineDirective({ type: FullpageDirective, selectors: [["", "fullpage", ""]], inputs: { id: "id", options: "options" }, outputs: { ref: "ref" } });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FullpageDirective, [{
         type: Directive,
         args: [{
                 selector: '[fullpage]'
             }]
-    }], function () { return [{ type: Object, decorators: [{
-                type: Inject,
-                args: [PLATFORM_ID]
-            }] }, { type: Renderer2 }]; }, { id: [{
+    }], function () { return [{ type: i0.Renderer2 }]; }, { id: [{
             type: Input
         }], options: [{
             type: Input
@@ -77,10 +67,10 @@ class AnchorLinkDirective {
     }
 }
 /** @nocollapse */ AnchorLinkDirective.ɵfac = function AnchorLinkDirective_Factory(t) { return new (t || AnchorLinkDirective)(); };
-/** @nocollapse */ AnchorLinkDirective.ɵdir = ɵɵdefineDirective({ type: AnchorLinkDirective, selectors: [["", "href", ""]], hostBindings: function AnchorLinkDirective_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵɵlistener("click", function AnchorLinkDirective_click_HostBindingHandler($event) { return ctx.onClick($event); });
+/** @nocollapse */ AnchorLinkDirective.ɵdir = i0.ɵɵdefineDirective({ type: AnchorLinkDirective, selectors: [["", "href", ""]], hostBindings: function AnchorLinkDirective_HostBindings(rf, ctx) { if (rf & 1) {
+        i0.ɵɵlistener("click", function AnchorLinkDirective_click_HostBindingHandler($event) { return ctx.onClick($event); });
     } }, inputs: { href: "href" } });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AnchorLinkDirective, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AnchorLinkDirective, [{
         type: Directive,
         args: [{
                 selector: '[href]'
@@ -94,10 +84,11 @@ class AnchorLinkDirective {
 
 class AngularFullpageModule {
 }
-/** @nocollapse */ AngularFullpageModule.ɵmod = ɵɵdefineNgModule({ type: AngularFullpageModule });
-/** @nocollapse */ AngularFullpageModule.ɵinj = ɵɵdefineInjector({ factory: function AngularFullpageModule_Factory(t) { return new (t || AngularFullpageModule)(); }, imports: [[]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(AngularFullpageModule, { declarations: [FullpageDirective, AnchorLinkDirective], exports: [FullpageDirective, AnchorLinkDirective] }); })();
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AngularFullpageModule, [{
+/** @nocollapse */ AngularFullpageModule.ɵfac = function AngularFullpageModule_Factory(t) { return new (t || AngularFullpageModule)(); };
+/** @nocollapse */ AngularFullpageModule.ɵmod = i0.ɵɵdefineNgModule({ type: AngularFullpageModule });
+/** @nocollapse */ AngularFullpageModule.ɵinj = i0.ɵɵdefineInjector({ imports: [[]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(AngularFullpageModule, { declarations: [FullpageDirective, AnchorLinkDirective], exports: [FullpageDirective, AnchorLinkDirective] }); })();
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AngularFullpageModule, [{
         type: NgModule,
         args: [{
                 imports: [],

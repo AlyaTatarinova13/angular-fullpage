@@ -1,13 +1,12 @@
 import { AfterViewInit, OnDestroy, EventEmitter, Renderer2 } from '@angular/core';
 import * as i0 from "@angular/core";
 export declare class FullpageDirective implements AfterViewInit, OnDestroy {
-    private platformId;
     private renderer;
     id: any;
     options: any;
     ref: EventEmitter<any>;
     fullpage_api: any;
-    constructor(platformId: Object, renderer: Renderer2);
+    constructor(renderer: Renderer2);
     ngAfterViewInit(): void;
     initFullpage(): void;
     addBuildFunction(): void;

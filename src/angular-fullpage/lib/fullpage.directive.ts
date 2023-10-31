@@ -18,17 +18,11 @@ export class FullpageDirective implements AfterViewInit, OnDestroy {
   fullpage_api: any;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
     private renderer: Renderer2
   ) { }
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initFullpage();
-    }
-    if (isPlatformServer(this.platformId)) {
-      // server side code
-    }
+
   }
 
   initFullpage(): void {
